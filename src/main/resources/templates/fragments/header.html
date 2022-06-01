@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+    <link rel="stylesheet" href="/css/main.css">
+</th:block>
+
+
+<div th:fragment="header">
+    <div id="top">
+        <div id="member">
+            <ul class="memberMenu">
+                <li sec:authorize="isAnonymous()">
+                    <a href="/members/new">회원가입</a>
+                </li>
+                <li sec:authorize="isAuthenticated()">
+                    <a href="/">마이페이지</a>
+                </li>
+                <li sec:authorize="isAnonymous()">
+                    <a href="/members/login">로그인</a>
+                </li>
+                <li sec:authorize="isAuthenticated()">
+                    <a href="/members/logout" onclick="alert('로그아웃 되었습니다');">로그아웃</a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="nav">
+            <ul class="topmenu">
+                <li sec:authorize="isAuthenticated()"><a href="#">상품 등록</a></li>
+                <li sec:authorize="isAuthenticated()"><a href="#">상품 관리</a></li>
+                <li sec:authorize="isAuthenticated()"><a href="#">장바구니</a></li>
+                <li sec:authorize="isAuthenticated()"><a href="#">구매 이력</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</html>

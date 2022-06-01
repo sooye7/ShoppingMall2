@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout1}">
+
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+    <link rel="stylesheet" href="/css/main.css">
+</th:block>
+
+<div layout:fragment="content">
+<div id="middle">
+    <img src="/img/city2.jpg" alt="city">
+    <h1 id="clock">00:00</h1>
+    <script src="/js/mainClock.js"></script>
+</div>
+</div>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+    <link rel="stylesheet" href="/css/memberLoginForm.css">
+</th:block>
+<div layout:fragment="content">
+<div id="loginBox">
+    <p class="loginTitle">로그인</p>
+    <form action="/members/login" id="login_Id_Pwd" role="form" method="post">
+        <div>
+            <label th:for="email">이메일</label>
+            <input type="email" name="email" placeholder="아이디" autofocus>
+        </div>
+
+        <div>
+                <label th:for="password">비밀번호</label>
+                <input type="password" name="password" placeholder="비밀번호">
+        </div>
+
+
+    <p class="findPwd">비밀번호 찾기</p>
+        <p th:if="${loginErrorMsg}" class="error" th:text="${loginErrorMsg}"></p>
+
+    <button type="button" class="joinButton" onclick="location.href='/members/new'">회원가입</button>
+    <button type="submit" class="loginButton">로그인</button>
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+
+    </form>
+
+</div>
+</div>
+</html>
